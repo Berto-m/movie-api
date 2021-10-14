@@ -1,4 +1,6 @@
 import React from 'react';
+import Slider from 'react-slick';
+import { Settings } from '../../common/settings';
 import { useSelector } from 'react-redux';
 import { getAllMovies, getAllSeries } from '../../features/movies/movieSlice';
 import Card from '../Card/Card';
@@ -31,16 +33,20 @@ export default function Listing() {
         <h3>{series.Error}</h3>
       </div>
     );
-  //console.log(movies);
+  // console.log(movies);
   return (
     <div className='movie--wrapper'>
       <div className='movie--list'>
         <h2>Movies</h2>
-        <div className='movie--container'>{renderedMovies}</div>
+        <div className='movie--container'>
+          <Slider {...Settings}>{renderedMovies}</Slider>
+        </div>
       </div>
       <div className='serie--list'>
         <h2>Series</h2>
-        <div className='movie--container'>{renderedSeries}</div>
+        <div className='movie--container'>
+          <Slider {...Settings}>{renderedSeries}</Slider>
+        </div>
       </div>
     </div>
   );
