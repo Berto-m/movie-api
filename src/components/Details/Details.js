@@ -2,7 +2,11 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaStar, FaThumbsUp, FaFilm, FaCalendar } from 'react-icons/fa';
-import { fetchDetails, getDetails } from '../../features/movies/movieSlice';
+import {
+  fetchDetails,
+  getDetails,
+  removeSelectedMoviesOrShow,
+} from '../../features/movies/movieSlice';
 import './Details.scss';
 
 export default function Details() {
@@ -12,6 +16,9 @@ export default function Details() {
   console.log(data);
   useEffect(() => {
     dispatch(fetchDetails(imdbID));
+    // Clean up function
+    // if not clean the details page will be delayed (show the right info one second later)
+    return () => dispatch(removeSelectedMoviesOrShow());
   }, [dispatch, imdbID]);
 
   return (
