@@ -18,9 +18,18 @@ export const fetchSeries = createAsyncThunk('movies/fetchSeries', async () => {
   return response.data;
 });
 
+export const fetchDetails = createAsyncThunk(
+  'movies/fetchDetails',
+  async (id) => {
+    const response = await omdbAPI.get(`?apikey=${APIKey}&i=${id}&Plot=full`);
+    return response.data;
+  }
+);
+
 const initialState = {
   movies: {},
-  series: {}, 
+  series: {},
+  details: {},
 };
 
 const movieSlice = createSlice({
@@ -30,7 +39,7 @@ const movieSlice = createSlice({
     addMovies: (state, { payload }) => {
       state.movies = payload;
     },
-  }, 
+  },
   extraReducers: {
     [fetchMovies.pending]: () => {
       console.log('pending');
@@ -46,10 +55,16 @@ const movieSlice = createSlice({
       console.log('fetched succesfully');
       return { ...state, series: payload };
     },
+
+    [fetchDetails.fulfilled]: (state, { payload }) => {
+      console.log('fetched succesfully');
+      return { ...state, details: payload };
+    },
   },
 });
 
 export const { addMovies } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllSeries = (state) => state.movies.series;
+export const getDetails = (state) => state.movies.details;
 export default movieSlice.reducer;
