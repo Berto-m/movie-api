@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaStar, FaThumbsUp, FaFilm, FaCalendar } from 'react-icons/fa';
 import { fetchDetails, getDetails } from '../../features/movies/movieSlice';
+import './Details.scss';
 
 export default function Details() {
   const { imdbID } = useParams();
@@ -19,16 +20,16 @@ export default function Details() {
         <div className='movie--title'>{data.Title}</div>
         <div className='movie--rating'>
           <span>
-            IMDb Rating <FaStar /> : {data.imdbRating}
+            IMDb Rating <FaStar color='#ff9e00' /> : {data.imdbRating}
           </span>
           <span>
-            IMDb Votes <FaThumbsUp /> : {data.imdbVotes}
+            IMDb Votes <FaThumbsUp color='#fafafa' /> : {data.imdbVotes}
           </span>
           <span>
-            Runtime <FaFilm /> : {data.Runtime}
+            Runtime <FaFilm color='#BFD5D6' /> : {data.Runtime}
           </span>
           <span>
-            Year <FaCalendar /> : {data.Year}
+            Year <FaCalendar color='#FFE5B4' /> : {data.Year}
           </span>
         </div>
         <div className='movie--plot'>{data.Plot}</div>
