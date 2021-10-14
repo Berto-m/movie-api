@@ -5,11 +5,12 @@ import { fetchMovies, fetchSeries } from '../../features/movies/movieSlice';
 
 export default function Home() {
   const dispatch = useDispatch();
-
+  const movieSearch = 'furious'
+  const seriesSearch = 'game'
   useEffect(() => {
     // call the async function from createSlice when the component loads
-    dispatch(fetchMovies());
-    dispatch(fetchSeries());
+    dispatch(fetchMovies(movieSearch));
+    dispatch(fetchSeries(seriesSearch));
   }, [dispatch]);
 
   return (
@@ -19,3 +20,4 @@ export default function Home() {
     </div>
   );
 }
+ 

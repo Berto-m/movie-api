@@ -2,21 +2,25 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import omdbAPI from '../../common/API/API';
 import { APIKey } from '../../common/API/APIKey';
 
-export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
-  const movieSearch = 'harry';
-  const response = await omdbAPI.get(
-    `?apikey=${APIKey}&s=${movieSearch}&type=movie`
-  );
-  return response.data;
-});
+export const fetchMovies = createAsyncThunk(
+  'movies/fetchMovies',
+  async (search) => {
+    const response = await omdbAPI.get(
+      `?apikey=${APIKey}&s=${search}&type=movie`
+    );
+    return response.data;
+  }
+);
 
-export const fetchSeries = createAsyncThunk('movies/fetchSeries', async () => {
-  const seriesSearch = 'Game';
-  const response = await omdbAPI.get(
-    `?apikey=${APIKey}&s=${seriesSearch}&type=series`
-  );
-  return response.data;
-});
+export const fetchSeries = createAsyncThunk(
+  'movies/fetchSeries',
+  async (search) => {
+    const response = await omdbAPI.get(
+      `?apikey=${APIKey}&s=${search}&type=series`
+    );
+    return response.data;
+  }
+);
 
 export const fetchDetails = createAsyncThunk(
   'movies/fetchDetails',
