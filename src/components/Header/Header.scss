@@ -1,0 +1,22 @@
+@import '../../common/colours.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: $secondary-color;
+  height: 72px;
+  align-items: center;
+  padding: 0px 40px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo--name {
+  font-size: 20px;
+  font-weight: 600;
+  padding-left: 15px;
+  color: $font-primary;
+}
