@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { getAllMovies } from '../../features/movies/movieSlice';
 import Card from '../Card/Card';
+import './Listing.scss'
 
 export default function Listing() {
   const movies = useSelector(getAllMovies);
@@ -9,10 +10,12 @@ export default function Listing() {
 
   renderedMovies =
     movies.Response === 'True' ? (
-      movies.Search.map((movie, index) => {
-        <Card key={index} data={movie} />;
-      })
+      // if the reponse is True map through the object and render a card
+      movies.Search.map((movie, index) => (
+        <Card key={index} data={movie} />
+      ))
     ) : (
+      // if the response is not equal to True, deisplay the error
       <div className='movie--error'>
         <h3>{movies.Error}</h3>
       </div>
