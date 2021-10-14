@@ -31,7 +31,7 @@ export default function Listing() {
         <h3>{series.Error}</h3>
       </div>
     );
-  console.log(movies);
+  //console.log(movies);
   return (
     <div className='movie--wrapper'>
       <div className='movie--list'>

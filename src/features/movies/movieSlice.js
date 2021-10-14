@@ -37,8 +37,8 @@ const movieSlice = createSlice({
   initialState,
   reducers: {
     removeSelectedMoviesOrShow: (state) => {
-      state.removeMovieSerie = {}
-    }
+      state.removeMovieSerie = {};
+    },
   },
   extraReducers: {
     [fetchMovies.pending]: () => {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Card.scss';
 
 export default function Card({ data }) {
-  console.log(data);
+  //console.log(data);
   return (
     <div className='card--item'>
       <Link to={`/movie/${data.imdbID}`}>

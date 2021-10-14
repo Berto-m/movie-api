@@ -8,7 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     // call the async function from createSlice when the component loads
-    dispatch(fetchMovies())
+    dispatch(fetchMovies());
     dispatch(fetchSeries());
   }, [dispatch]);
 

@@ -23,7 +23,7 @@ export default function Details() {
 
   return (
     <div className='movie--section'>
-    {/* the condition belows fixes a bug causes a delays the info below
+      {/* the condition belows fixes a bug causes a delays the info below
     if theres data it render the divs right aways other it will display loading */}
       {Object.keys(data).length === 0 ? (
         <div>...Loading</div>
